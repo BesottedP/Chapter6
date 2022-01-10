@@ -32,7 +32,6 @@ public class Complex {
         return nComplex;
     }
 
-
     public Complex multiply(Complex other){
         double r = (real * other.real) - (imagine * other.imagine);
         double i = (real * other.imagine) + (imagine * other.real);
@@ -78,4 +77,3 @@ public class Complex {
     }
 }
 
-//Should the method names be the same of different?
