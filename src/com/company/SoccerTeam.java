@@ -17,11 +17,11 @@ public class SoccerTeam {
             this.wins += 1;
             other.losses += 1;
         }
-        else if(myScore < Otherscore){
+        if(myScore < Otherscore){
             this.losses += 1;
             other.wins += 1;
         }
-        else if(myScore == Otherscore){
+        if(myScore == Otherscore){
             this.ties += 1;
             other.ties += 1;
         }
@@ -45,7 +45,7 @@ public class SoccerTeam {
         return totalGoals;
     }
 
-    public static int Games(){
+    public static int games(){
         return gamesPlayed;
     }
 
@@ -55,47 +55,47 @@ public class SoccerTeam {
     }
 
     public static void main(String[] args) {
-        SoccerTeam one = new SoccerTeam();
-        SoccerTeam two = new SoccerTeam();
-        SoccerTeam three = new SoccerTeam();
-        SoccerTeam four = new SoccerTeam();
+        SoccerTeam apple = new SoccerTeam();
+        SoccerTeam banana = new SoccerTeam();
+        SoccerTeam cucumber = new SoccerTeam();
+        SoccerTeam dragonFruit = new SoccerTeam();
 
         System.out.println("Tournament 1");
-        one.played(two, 5, 2);
-        one.played(three, 1, 3);
-        one.played(four,4, 3);
-        two.played(three, 1, 5);
-        two.played(four, 3, 3);
-        three.played(four, 2, 4);
+        apple.played(banana, 5, 2);
+        apple.played(cucumber, 1, 3);
+        apple.played(dragonFruit,4, 3);
+        banana.played(cucumber, 1, 5);
+        banana.played(dragonFruit, 3, 3);
+        cucumber.played(dragonFruit, 2, 4);
 
-        System.out.println("Team one scored " + one.getPoints() + " points");
-        System.out.println("Team two scored " + two.getPoints() + " points");
-        System.out.println("Team three scored " + three.getPoints() + " points");
-        System.out.println("Team four scored " + four.getPoints() + " points");
-        System.out.println("Total goals scored: " + totalGoals);
-        System.out.println("Total games played: " + gamesPlayed);
+        System.out.println("Team apple scored " + apple.getPoints() + " points");
+        System.out.println("Team banana scored " + banana.getPoints() + " points");
+        System.out.println("Team cucumber" + " scored " + cucumber.getPoints() + " points");
+        System.out.println("Team dragonFruit" + " scored " + dragonFruit.getPoints() + " points");
+        System.out.println("Total goals scored: " + goalsScored());
+        System.out.println("Total games played: " + games());
 
         startTournament();
-        one.reset();
-        two.reset();
-        three.reset();
-        four.reset();
+        apple.reset();
+        banana.reset();
+        cucumber.reset();
+        dragonFruit.reset();
         System.out.println();
         System.out.println("Tournament 2");
 
-        one.played(two, 5, 3);
-        one.played(three, 6, 1);
-        one.played(four,0, 6);
-        two.played(three, 2, 4);
-        two.played(four, 5, 6);
-        three.played(four, 1, 0);
+        apple.played(banana, 5, 3);
+        apple.played(cucumber, 6, 1);
+        apple.played(dragonFruit,0, 6);
+        banana.played(cucumber, 2, 4);
+        banana.played(dragonFruit, 5, 6);
+        cucumber.played(dragonFruit, 1, 0);
 
-        System.out.println("Team one scored " + one.getPoints() + " points");
-        System.out.println("Team two scored " + two.getPoints() + " points");
-        System.out.println("Team three scored " + three.getPoints() + " points");
-        System.out.println("Team four scored " + four.getPoints() + " points");
-        System.out.println("Total goals scored: " + totalGoals);
-        System.out.println("Total games played: " + gamesPlayed);
+        System.out.println("Team apple scored " + apple.getPoints() + " points");
+        System.out.println("Team banana scored " + banana.getPoints() + " points");
+        System.out.println("Team cucumber" + " scored " + cucumber.getPoints() + " points");
+        System.out.println("Team dragonFruit" + " scored " + dragonFruit.getPoints() + " points");
+        System.out.println("Total goals scored: " + goalsScored());
+        System.out.println("Total games played: " + games());
 
     }
 }

@@ -28,7 +28,7 @@ public class Complex {
 
     public Complex add(double other){
         double r = real + other;
-        Complex nComplex = new Complex(r);
+        Complex nComplex = new Complex(r, imagine);
         return nComplex;
     }
 
@@ -68,11 +68,14 @@ public class Complex {
         System.out.println();
         System.out.println("add");
         System.out.println(x.add(y));
+        System.out.println(z.add(xz));
+        System.out.println(xy.add(yz));
         System.out.println(z.add(5.0));
         System.out.println();
         System.out.println("multiply");
         System.out.println(x.multiply(y));
         System.out.println(xz.multiply(x));
+        System.out.println(y.multiply(xy));
         System.out.println(yz.multiply(4.0));
     }
 }
