@@ -15,59 +15,61 @@ public class Spiral {
         int maxlen = 0;
         int maxrowIF = rows;
         int maxlenIF = length;
+        for (int x = 100; x> 0; x--) {
 
-        for(int i = 0; i < maxlenIF; i++){
-            if (FINCOUNT == 0){
-                break;
+            for (int i = 0; i < maxlenIF; i++) {
+                if (FINCOUNT == 0) {
+                    break;
+                }
+                result[count] = a[maxrow][maxlen];
+                count++;
+                maxlen++;
             }
-            result[count] = a[maxrow][maxlen];
-            count++;
-            maxlen++;
-        }
-        maxlenIF--;
-        maxlen--;
-        maxrow++;
-        FINCOUNT--;
-
-        for(int j = 0; j < maxrowIF - 1; j++){
-            if (FINCOUNT == 0){
-                break;
-            }
-            result[count] = a[maxrow][maxlen];
-            count++;
-            maxrow++;
-        }
-        maxrowIF--;
-        maxrow--;
-        maxlen--;
-        FINCOUNT--;
-
-        for(int k = 0; k < maxlenIF; k++){
-            if (FINCOUNT == 0){
-                break;
-            }
-            result[count] = a[maxrow][maxlen];
-            count++;
+            maxlenIF--;
             maxlen--;
-        }
-        maxlenIF--;
-        maxlen++;
-        maxrow--;
-        FINCOUNT--;
+            maxrow++;
+            FINCOUNT--;
 
-
-        for(int r = 0; r < maxrowIF - 1; r++){
-            if (FINCOUNT == 0){
-                break;
+            for (int j = 0; j < maxrowIF - 1; j++) {
+                if (FINCOUNT == 0) {
+                    break;
+                }
+                result[count] = a[maxrow][maxlen];
+                count++;
+                maxrow++;
             }
-            result[count] = a[maxrow][maxlen];
-            count++;
+            maxrowIF--;
             maxrow--;
+            maxlen--;
+            FINCOUNT--;
+
+            for (int k = 0; k < maxlenIF; k++) {
+                if (FINCOUNT == 0) {
+                    break;
+                }
+                result[count] = a[maxrow][maxlen];
+                count++;
+                maxlen--;
+            }
+            maxlenIF--;
+            maxlen++;
+            maxrow--;
+            FINCOUNT--;
+
+
+            for (int r = 0; r < maxrowIF - 1; r++) {
+                if (FINCOUNT == 0) {
+                    break;
+                }
+                result[count] = a[maxrow][maxlen];
+                count++;
+                maxrow--;
+            }
+            maxrowIF--;
+            maxrow++;
+            maxlen++;
+            FINCOUNT--;
         }
-        maxrowIF--;
-        maxrow++;
-        maxlen++;
-        FINCOUNT--;
 
 
 //        for(int i = 0; i < maxlenIF; i++){
