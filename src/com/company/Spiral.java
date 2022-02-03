@@ -9,6 +9,7 @@ public class Spiral {
         int length = a[0].length;
         int[] result = new int[rows*length];
         int count = 0;
+        int FINCOUNT = rows+length-2;
 
         int maxrow = 0;
         int maxlen = 0;
@@ -16,6 +17,9 @@ public class Spiral {
         int maxlenIF = length;
 
         for(int i = 0; i < maxlenIF; i++){
+            if (FINCOUNT == 0){
+                break;
+            }
             result[count] = a[maxrow][maxlen];
             count++;
             maxlen++;
@@ -23,8 +27,12 @@ public class Spiral {
         maxlenIF--;
         maxlen--;
         maxrow++;
+        FINCOUNT--;
 
         for(int j = 0; j < maxrowIF - 1; j++){
+            if (FINCOUNT == 0){
+                break;
+            }
             result[count] = a[maxrow][maxlen];
             count++;
             maxrow++;
@@ -32,8 +40,12 @@ public class Spiral {
         maxrowIF--;
         maxrow--;
         maxlen--;
+        FINCOUNT--;
 
         for(int k = 0; k < maxlenIF; k++){
+            if (FINCOUNT == 0){
+                break;
+            }
             result[count] = a[maxrow][maxlen];
             count++;
             maxlen--;
@@ -41,9 +53,13 @@ public class Spiral {
         maxlenIF--;
         maxlen++;
         maxrow--;
+        FINCOUNT--;
 
 
         for(int r = 0; r < maxrowIF - 1; r++){
+            if (FINCOUNT == 0){
+                break;
+            }
             result[count] = a[maxrow][maxlen];
             count++;
             maxrow--;
@@ -51,37 +67,38 @@ public class Spiral {
         maxrowIF--;
         maxrow++;
         maxlen++;
+        FINCOUNT--;
 
 
-        for(int i = 0; i < maxlenIF; i++){
-            result[count] = a[maxrow][maxlen];
-            count++;
-            maxlen++;
-        }
-        maxlenIF--;
-        maxlen--;
-        maxrow++;
-
-        for(int j = 0; j < maxrowIF - 1; j++){
-            result[count] = a[maxrow][maxlen];
-            count++;
-            maxrow++;
-        }
-        maxrowIF--;
-        maxrow--;
-        maxlen--;
-
-        System.out.println(maxlen);
-        System.out.println(maxrow);
-
-        for(int k = 0; k < maxlenIF; k++){
-            result[count] = a[maxrow][maxlen];
-            count++;
-            maxlen--;
-        }
-        maxlenIF--;
-        maxlen++;
-        maxrow--;
+//        for(int i = 0; i < maxlenIF; i++){
+//            result[count] = a[maxrow][maxlen];
+//            count++;
+//            maxlen++;
+//        }
+//        maxlenIF--;
+//        maxlen--;
+//        maxrow++;
+//
+//        for(int j = 0; j < maxrowIF - 1; j++){
+//            result[count] = a[maxrow][maxlen];
+//            count++;
+//            maxrow++;
+//        }
+//        maxrowIF--;
+//        maxrow--;
+//        maxlen--;
+//
+//        System.out.println(maxlen);
+//        System.out.println(maxrow);
+//
+//        for(int k = 0; k < maxlenIF; k++){
+//            result[count] = a[maxrow][maxlen];
+//            count++;
+//            maxlen--;
+//        }
+//        maxlenIF--;
+//        maxlen++;
+//        maxrow--;
 
 
 
