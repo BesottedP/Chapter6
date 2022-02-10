@@ -77,17 +77,17 @@ public class NitalSquare {
            int[] sqr;
 
            for(int i = 0; i < square.length; i++){
-               if (containsRepeats(getColumn(square, i)) == true){
+               if (containsRepeats(getColumn(square, i))){
                    nital = false;
                }
                sqr = square[i];
-               if(containsRepeats(sqr) == true){
+               if(containsRepeats(sqr)){
                    nital = false;
                }
            }
 
             for(int i = 1; i < square.length; i++){
-                if(hasAllValues(getColumn(square, 0),getColumn(square, i)) == false){
+                if(!hasAllValues(getColumn(square, 0), getColumn(square, i))){
                     nital = false;
                 }
             }
@@ -115,16 +115,18 @@ public class NitalSquare {
             System.out.println(isNital(n5));
             System.out.println(isNital(n6));
 
+            System.out.println("");
 
-//        int [] arr1 = {1,2,3};
-//        int [] arr2 = {3,1,2};
-//        int [] arr3 = {2,1,2};
-//        System.out.println(hasAllValues(arr1,arr2));
-//        System.out.println(hasAllValues(arr1,arr3));
-//        System.out.println(hasAllValues(arr3,arr2));
-//        int[] arr4 = {1,2,3,4,5,6};
-//        int[] arr5 = {3,2,1,2,3};
-//        System.out.println(containsRepeats(arr4));
-//        System.out.println(containsRepeats(arr5));
+
+        int [] arr1 = {1,2,3};
+        int [] arr2 = {3,1,2};
+        int [] arr3 = {2,1,2};
+        System.out.println(hasAllValues(arr1,arr2)); //true
+        System.out.println(hasAllValues(arr1,arr3)); //false
+        System.out.println(hasAllValues(arr3,arr2)); //false
+        int[] arr4 = {1,2,3,4,5,6};
+        int[] arr5 = {3,2,1,2,3};
+        System.out.println(containsRepeats(arr4)); //false
+        System.out.println(containsRepeats(arr5)); //true
         }
 }

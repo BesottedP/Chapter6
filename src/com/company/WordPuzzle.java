@@ -7,10 +7,11 @@ public class WordPuzzle {
      */
     private Box [][] puzzle;
 
+
     /* Write the WordPuzzle method toBeLabeled().  The method returns true
     if the box indexed by row r and column c in a word puzzle grid should be
     labeled with a positive number according to the word puzzle labeling rule;
-    otherwise it returns false.  The parameter blackBoxes indicates which
+    otherwise it returns false. The parameter blackBoxes indicates which
     squares in the word puzzle grid are black.
      */
 
@@ -20,13 +21,25 @@ public class WordPuzzle {
      * is true.
      * Precondition: r and c are valid indexes in blackBoxes
      */
-    public boolean toBeLabeled(int r, int c, boolean [][] blackBoxes){
+    public static boolean toBeLabeled(int r, int c, boolean [][] blackBoxes){
 
+        if (blackBoxes[r][c]){
+            return false;
+        }
 
+        if (r == 0 || c == 0){
+            return true;
+        }
 
+        if (blackBoxes[r - 1][c]){
+            return true;
+        }
+        if (blackBoxes[r][c - 1]){
+            return true;
+        }
 
+        return false;
 
-        return false;    // replace this
     }
 
     /* Write the WordPuzzle Constructor.  The constructor should initialize the
@@ -47,7 +60,25 @@ public class WordPuzzle {
      * @param blackBoxes - a 2D array of Boxes
      */
     public WordPuzzle(boolean [][] blackBoxes){
-        /* to be implemented in part b */
+
+        int r = blackBoxes.length;
+        int c = blackBoxes[0].length;
+        int count = 1;
+
+        puzzle = new Box[r][c];
+
+        for (int rows = 0; rows < r; rows++){
+            for (int column = 0; column < c; column++){
+                if (toBeLabeled(rows,column,blackBoxes)){
+                    puzzle[rows][column] = new Box(blackBoxes[rows][column], count);
+                    count++;
+                }
+                else {
+                    puzzle[rows][column] = new Box(blackBoxes[rows][column], 0);
+                }
+            }
+        }
+
 
 
 
