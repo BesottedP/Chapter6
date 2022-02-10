@@ -105,8 +105,8 @@ public class NitalSquare {
 
             //true, true, false, false, false, false
 
-            System.out.println(Arrays.toString(getColumn(n1, 2)));
-            System.out.println(Arrays.toString(getColumn(n2, 1)));
+            System.out.println(Arrays.toString(getColumn(n1, 1)));
+            System.out.println(Arrays.toString(getColumn(n2, 2)));
 
             System.out.println(isNital(n1));
             System.out.println(isNital(n2));
@@ -123,7 +123,7 @@ public class NitalSquare {
         int [] arr3 = {2,1,2};
         System.out.println(hasAllValues(arr1,arr2)); //true
         System.out.println(hasAllValues(arr1,arr3)); //false
-        System.out.println(hasAllValues(arr3,arr2)); //false
+        System.out.println(hasAllValues(arr3,arr2)); //true
         int[] arr4 = {1,2,3,4,5,6};
         int[] arr5 = {3,2,1,2,3};
         System.out.println(containsRepeats(arr4)); //false
