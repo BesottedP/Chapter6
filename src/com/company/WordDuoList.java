@@ -5,19 +5,7 @@ import java.util.ArrayList;
 
 public class WordDuoList {
 
-    private ArrayList<Integer> allDuos(String[] strings) {
-        ArrayList<Integer> x = new ArrayList<Integer>();
-        x.add(1);
-        x.add(2);
-        x.add(3);
-//        ArrayList<WordDuo> x = new ArrayList<WordDuo>();
-//        for (int i = strings.length; i > 0; i--) {
-//            for (int j = i; j < strings.length; j++) {
-//                x.add(new WordDuo(strings[i], strings[j]));
-//            }
-//        }
-        return x;
-    }
+    private ArrayList<WordDuo> allDuos;
 
     /*
     Write the constructor for the WordDuoList class.  The constructor
@@ -55,19 +43,21 @@ public class WordDuoList {
      */
 
     public WordDuoList(String[] words){
-        /* part A */
-
-
-
-
+        allDuos = new ArrayList<WordDuo>();
+        for (int i = 0; i < words.length; i++) {
+            for (int j = i+1; j < words.length; j++) {
+                allDuos.add(new WordDuo(words[i], words[j]));
+            }
+        }
     }
-//    public String toString(){
-//        String s = "";
-//        for (WordDuo wd: allDuos){
-//            s += "("+wd.getFirst() + ", " + wd.getSecond() + ")\n";
-//        }
-//        return s;
-//    }
+
+    public String toString(){
+        String s = "";
+        for (WordDuo wd: allDuos){
+            s += "("+wd.getFirst() + ", " + wd.getSecond() + ")\n";
+        }
+        return s;
+    }
 
     /* Write the WordDuoList method numMatches.  This method returns the number
     of WordDuo objects in allDuos for which the two strings match.
@@ -86,11 +76,13 @@ public class WordDuoList {
     ("fox", "red"), ("the", "red")
      */
     public int numMatches(){
-        /* part B  */
-
-
-
-        return 0;  // replace this
+        int c = 0;
+        for(int i=0; this.allDuos.size() > i; i++){
+            if(allDuos.get(i).getFirst() == allDuos.get(i).getSecond()) {
+                c++;
+            }
+        }
+        return c;  // replace this
     }
 
     /*Write the method moveMatchesToTop()  THis method will look for
@@ -104,32 +96,40 @@ public class WordDuoList {
 
      */
     public void moveMatchesToTop(){
-        /* part c */
+        for(int i=0; this.allDuos.size() > i; i++){
+            if(allDuos.get(i).getFirst() == allDuos.get(i).getSecond()) {
+                WordDuo x = allDuos.get(i);
+                allDuos.remove(i);
+                allDuos.add(0, x);
+            }
+        }
+
 
 
 
     }
 
     public static void main(String[] args){
+
         String [] stuff = {"to","be","or","not","to","be"};
         WordDuoList wdl = new WordDuoList(stuff);
         System.out.println(wdl);
-//        System.out.println(wdl.numMatches());
-//        wdl.moveMatchesToTop();
-//        System.out.println(wdl);
-//
-//        String [] stuff2 = {"one","fish","two","fish","red","fish","blue","fish"};
-//        WordDuoList wdl2 = new WordDuoList(stuff2);
-//        System.out.println(wdl2);
-//        System.out.println(wdl2.numMatches());
-//        wdl2.moveMatchesToTop();
-//        System.out.println(wdl2);
-//
-//        String [] stuff3 = {"call","me","ishmael"};
-//        WordDuoList wdl3 = new WordDuoList(stuff3);
-//        System.out.println(wdl3);
-//        System.out.println(wdl3.numMatches());
-//        wdl3.moveMatchesToTop();
-//        System.out.println(wdl3);
+        System.out.println(wdl.numMatches());
+        wdl.moveMatchesToTop();
+        System.out.println(wdl);
+
+        String [] stuff2 = {"one","fish","two","fish","red","fish","blue","fish"};
+        WordDuoList wdl2 = new WordDuoList(stuff2);
+        System.out.println(wdl2);
+        System.out.println(wdl2.numMatches());
+        wdl2.moveMatchesToTop();
+        System.out.println(wdl2);
+
+        String [] stuff3 = {"call","me","ishy"};
+        WordDuoList wdl3 = new WordDuoList(stuff3);
+        System.out.println(wdl3);
+        System.out.println(wdl3.numMatches());
+        wdl3.moveMatchesToTop();
+        System.out.println(wdl3);
     }
 }

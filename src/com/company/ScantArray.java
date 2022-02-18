@@ -46,11 +46,17 @@ public class ScantArray {
      *                0 <= col < getNumColumns()
      */
     public int getValueAt(int row, int col){
-        /* part a */
+        int fin = 0;
+        int x = entries.size();
+        for(int i = 0; i<x; i++){
+            if(entries.get(i).getColumn() == col){
+                if(entries.get(i).getRow() == row){
+                    fin = entries.get(i).getValue();
+                }
+            }
+        }
 
-
-
-        return 0;    // replace this
+        return fin;    // replace this
     }
 
     /** Removes a column from the scant array and shifts
