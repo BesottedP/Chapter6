@@ -1,6 +1,5 @@
 package com.company;
 
-import java.sql.Array;
 import java.util.ArrayList;
 
 public class WordDuoList {
@@ -125,7 +124,7 @@ public class WordDuoList {
         wdl2.moveMatchesToTop();
         System.out.println(wdl2);
 
-        String [] stuff3 = {"call","me","ishy"};
+        String [] stuff3 = {"call","me","ishmael"};
         WordDuoList wdl3 = new WordDuoList(stuff3);
         System.out.println(wdl3);
         System.out.println(wdl3.numMatches());
